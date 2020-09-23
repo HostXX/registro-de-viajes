@@ -12,6 +12,9 @@
   justify-content: space-around;
  
 }
+.navigation{
+  height: '10%';
+}
 
 .navigation ul li{
   list-style: none;
@@ -22,6 +25,10 @@
 .navigation ul li:hover{
   background: aqua;
   cursor: pointer;
+}
+
+a{
+  text-decoration: none;
 }
 
 
@@ -38,11 +45,27 @@
 }
 
 .pop-up{
-  max-width: 400px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
  
 }
+
 
 .entry-form{
   display: flex;
   flex-direction: column;
+}
+
+.account-page{
+  min-height: calc(95vh);
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+}
+
+.loggin-container{
+  background-color: rgba(126, 235, 116, 0.76);
+  min-height: 80vh;
+  min-width: 300px;
 }

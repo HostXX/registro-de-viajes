@@ -1,25 +1,31 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Nav = () => {
-    const [logged,setLogged] = React.useState(true)
-
-    const logout = () => {
-       setLogged(!logged)
-    }
-
-
-    return (
-        <div>
-            <nav className={'navigation'}>
-                <ul>
-                    <li>Locations</li>
-                    <li>Account</li>
-                    <li onClick={ () => logout()}>{ logged ? "LogOut" : "LogIn" }</li>
-                </ul>
-            </nav>
-
-        </div>
-    );
+const Nav = ({ isLogged, setIsLogged }) => {
+  return (
+    <div>
+      <nav className={'navigation'}>
+        <ul>
+          <li>
+            <Link to={'/'}>Locations</Link>
+          </li>
+          <li>
+            <Link to={'/account'}>Account</Link>
+          </li>
+          <li>
+            {isLogged ? (
+              <Link to={'/'} onClick={() => setIsLogged(false)}>
+                {' '}
+                Log out{' '}
+              </Link>
+            ) : (
+              <Link to={'/login'}> Log in </Link>
+            )}
+          </li>
+        </ul>
+      </nav>
+    </div>
+  )
 }
 
-export default Nav;
+export default Nav

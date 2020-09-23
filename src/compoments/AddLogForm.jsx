@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import { createLog } from '../API'
 
-
-
 const AddLogForm = ({ coordinates, onClose }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('')

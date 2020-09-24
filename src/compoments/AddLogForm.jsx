@@ -14,11 +14,21 @@ const AddLogForm = ({ coordinates, onClose }) => {
         try {
             setLoading(true);
             const created = await createLog(data)
-            console.log(created);
-            onClose()
+            // console.log(created);
+            setError('Added correctly');
+            setTimeout(() => {
+                setError('');
+                onClose()
+            }, 1000);
+
+           
         } catch (error) {
             console.error(error);
             setError(error.message);
+            setTimeout(() => {
+                setError(null);
+            }, 2000);
+
             setLoading(false);
         }
     }
@@ -27,13 +37,16 @@ const AddLogForm = ({ coordinates, onClose }) => {
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className="entry-form">
-                {error ? <h3 className="error">{error}</h3> : null}
+                {error ? <h3 className="error" style={{color:'#ff0000'}} >{error}</h3> : null}
+                <label htmlFor="apikey">Apikey</label>
+                <input name="apikey" required ref={register} type='password' />
+                <br/>
                 <label htmlFor="title">Title</label>
                 <input name="title" required ref={register} />
                 <label htmlFor="comment">Comment</label>
-                <textarea name="comment" rows={3} ref={register}></textarea>
+                <textarea name="comment" rows={2} ref={register}></textarea>
                 <label htmlFor="description">Description</label>
-                <textarea name="description" rows={3} ref={register}></textarea>
+                <textarea name="description" rows={2} ref={register}></textarea>
                 <label htmlFor="image">Image</label>
                 <input name="image" ref={register} />
                 <label htmlFor="visitedAt">Visit Date</label>

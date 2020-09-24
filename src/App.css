@@ -47,6 +47,7 @@ a{
 }
 
 .pop-up{
+  color: rgba(0, 0, 0, 0.836);
   max-width: 300px;
   display: flex;
   flex-direction: column;

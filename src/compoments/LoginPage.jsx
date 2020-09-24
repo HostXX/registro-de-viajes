@@ -9,6 +9,7 @@ const LoginPage = ({ isLogged, setIsLogged }) => {
   const onSubmit = async data => {
     console.log(data)
     // setError on an error
+    setError('Here will be the error message')
   }
 
   return (

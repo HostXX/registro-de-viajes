@@ -1,22 +1,35 @@
-const API_URL_GET_ALL = 'http://localhost:1335/api/logs/all'
-const API_URL_POST = 'http://localhost:1335/api/logs/post'
-const API_URL_DELETE = 'http://localhost:1335/api/logs/delete'
-const API_URL_PUT  = 'http://localhost:1335/api/logs/modify'
+const API_URL_GET_ALL = process.env.REACT_APP_API_URL_GET_ALL
+const API_URL_POST =process.env.REACT_APP_API_URL_POST
+const API_URL_DELETE =process.env.REACT_APP_API_URL_DELETE
+const API_URL_PUT  = process.env.REACT_APP_API_URL_PUT
 export async function listLogs () {
   return await fetch(`${API_URL_GET_ALL}`).then(res => res.json())
 }
 
 export async function createLog (entry) {
-  return fetch(API_URL_POST, {
+  const apikey = entry.apikey
+  delete entry.apikey
+  const response = await fetch(API_URL_POST, {
     method: 'POST',
     body: JSON.stringify(entry),
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'API_KEY' : apikey
     }
   })
-    .then(res => res.json())
-    .catch(error => console.error('Error:', error))
+
+  const jsonObject = await response.json()
+  if (response.ok) {
+    // console.log(response.ok);
+    return response
+   
+  }
+  const error = new Error(jsonObject.message)
+  // console.log(error);
+  throw error
 }
+
+
 
 
 export async function deleteLog (entryId) {

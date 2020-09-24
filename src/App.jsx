@@ -11,7 +11,7 @@ import LoginPage from './compoments/LoginPage'
 
 function App () {
   const [logEntries, setLogEntries] = useState([])
-  const [isLogged, setIsLogged] = useState(false)
+  const [isLogged, setIsLogged] = useState(true)
   const [addEntryLocation, setAddEntryLocation] = useState(null)
   const [viewport, setViewport] = useState({
     width: '100%',
@@ -22,7 +22,7 @@ function App () {
   })
 
   useEffect(() => {
-
+// changue in prod (!)
     if (isLogged) {
       getEntries()
     } else {
@@ -66,10 +66,12 @@ function App () {
 
       <ProtectedRoute
         exact
-        path={'/account'}
+        path={'/account/'}
         prueva={'prueva billy'}
         isLogged={isLogged}
+        logEntries={logEntries}
         component={AccountPage}
+        setLogEntries={setLogEntries}
       />
     </div>
   )

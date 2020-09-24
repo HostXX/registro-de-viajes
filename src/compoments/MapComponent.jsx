@@ -87,9 +87,6 @@ const MapComponent = ({viewport,showAddMarkerPopUp,setViewport,logEntries,addEnt
                       <small> {"visited: "}{new Date(entry.visitedAt).toLocaleDateString()}</small>
 
                   { entry.image && <img width='200px' height='200px' src={entry.image} alt={entry.title} /> }
-
-                      {/* creqate a handler for deletion */}
-                      <button type='button'>Delete-Log</button>
                     </div>
                   </Popup> : null
                 }

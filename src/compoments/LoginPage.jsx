@@ -22,28 +22,27 @@ const LoginPage = ({ isLogged, setIsLogged }) => {
       <p>Login Page</p>
 
       <div className='loggin-container'>
-        <div>
-          <form onSubmit={handleSubmit(onSubmit)} className='entry-form'>
-            {error ? <h3 className='error'>{error}</h3> : null}
-            <label htmlFor='username'>Username or Email</label>
-            <input name='username' required ref={register} id='username' />
+        <form onSubmit={handleSubmit(onSubmit)} className='entry-form'>
+          {error ? <h3 className='error'>{error}</h3> : null}
+          <label htmlFor='username'>Username or Email</label>
+          <input name='username' required ref={register} id='username' />
 
-            <label htmlFor='password'>Password</label>
-            <input
-              type='password'
-              name='password'
-              required
-              ref={register}
-              id='password'
-            />
-            <br />
-            <br />
-            <br />
-            <button type='submit'>Login with database</button>
-          </form>
-        </div>
+          <label htmlFor='password'>Password</label>
+          <input
+            type='password'
+            name='password'
+            required
+            ref={register}
+            id='password'
+          />
+          <br />
+          <br />
+          <br />
+          <button type='submit'>Login with database</button>
+          <button onClick={() => setIsLogged(true)}>Login test</button>
+        </form>
 
-        <button onClick={() => setIsLogged(true)}>Login test</button>
+        <button >Register</button>
       </div>
     </div>
   )

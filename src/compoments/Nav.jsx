@@ -10,7 +10,7 @@ const Nav = ({ isLogged, setIsLogged }) => {
             <Link to={'/'}>Locations</Link>
           </li>
           <li>
-            <Link to={'/account'}>Account</Link>
+            <Link to={`/account/`}>Account</Link>
           </li>
           <li>
             {isLogged ? (

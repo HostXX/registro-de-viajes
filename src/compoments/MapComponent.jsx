@@ -5,6 +5,7 @@ import AddLogForm from './AddLogForm'
 const MapComponent = ({viewport,showAddMarkerPopUp,setViewport,logEntries,addEntryLocation,setAddEntryLocation, getEntries }) => {
     const [showPopUp, setShowPopUp] = useState({})
     const [togleMap, setToggleMap] = useState(false)
+    let SIZE = 15
 
     return (
       
@@ -22,7 +23,7 @@ const MapComponent = ({viewport,showAddMarkerPopUp,setViewport,logEntries,addEnt
 
 
           {logEntries.map(entry => {
-            let size = 15
+            
             return (
               <div key={entry._id}>
                 <Marker
@@ -47,7 +48,7 @@ const MapComponent = ({viewport,showAddMarkerPopUp,setViewport,logEntries,addEnt
                   })
                 }}> <svg
 
-                  height={size}
+                  height={SIZE}
                   viewBox='0 0 24 24'
                   style={{
                     cursor: 'pointer',
